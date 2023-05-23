@@ -27,7 +27,9 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin') //crea il prefisso '/admin/...'
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-        Route::resource('projects', ProjectController::class);
+        Route::resource('projects', ProjectController::class)->parameters([
+            'projects' => 'project:slug'
+        ]);
     });
 
 Route::middleware('auth')->group(function () {

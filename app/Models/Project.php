@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'creation_date',
+        'completion_date',
+        'category',
+        'client',
+        'slug'
+    ];
 }
